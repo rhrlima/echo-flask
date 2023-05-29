@@ -13,14 +13,14 @@ jobs:
             echo 'export IMAGE_NAME=echo-flask' >> $BASH_ENV 
 
             python -m venv echo-flask
-            . helloworld/bin/activate
+            . echo-flask/bin/activate
 
             pip install --no-cache-dir -r requirements.txt
 
       - run:
           name: Run Tests
           command: |
-            . helloworld/bin/activate
+            . echo-flask/bin/activate
 
             echo "Running tests"
             env
@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
-            . helloworld/bin/activate
+            . echo-flask/bin/activate
 
             docker build -t rhrlima/$IMAGE_NAME:$TAG .
 
