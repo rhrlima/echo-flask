@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add python:3.10.9
+            apk add --update python3
 
       - run:
           name: Setup VirtualEnv
