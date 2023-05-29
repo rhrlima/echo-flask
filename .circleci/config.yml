@@ -14,8 +14,8 @@ jobs:
       - run:
           name: Setup VirtualEnv
           command: |
-            export TAG=0.1.${CIRCLE_BUILD_NUM}
-            export IMAGE_NAME="echo-flask"
+            echo 'export TAG=0.1.${CIRCLE_BUILD_NUM}' >> $BASH_ENV
+            echo 'export IMAGE_NAME=echo-flask' >> $BASH_ENV
 
             python -m venv echo-flask
             . echo-flask/bin/activate
@@ -38,7 +38,8 @@ jobs:
           command: |
             . echo-flask/bin/activate
 
-            cat $BASH_ENV
+            source $BASH_ENV
+            env
 
             docker build -t rhrlima/$IMAGE_NAME:$TAG .
 
