@@ -15,7 +15,7 @@ jobs:
           name: Setup VirtualEnv
           command: |
             export TAG=0.1.${CIRCLE_BUILD_NUM}
-            export IMAGE_NAME=echo-flask'
+            export IMAGE_NAME="echo-flask"
 
             python -m venv echo-flask
             . echo-flask/bin/activate
