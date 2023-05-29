@@ -2,9 +2,14 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: python:3.10.9-alpine
+      - image: docker:24.0.2-git
     steps:
       - checkout
+
+      - run:
+          name: Install dependencies
+          command: |
+            apk add python:3.10.9
 
       - run:
           name: Setup VirtualEnv
